@@ -51,7 +51,7 @@ contract  Trustchain{
         return numberOfCampaigns - 1;
     }
 
-    function donateToCampaign(uint256 _id, uint256 price, uint256 dn_percentage) public payable {
+    function donateToCampaign(uint256 _id, uint256 price, uint256 dn_percentage, address store_address) public payable {
         
         require(msg.value >= price, "ETH sent is Insufficient!");
 
@@ -77,7 +77,8 @@ contract  Trustchain{
         campaign.donations.push(campaignAmount);
 
         // Transfer remaining amount to store owner
-        payable(0x90F79bf6EB2c4f870365E785982E1f101E93b906).transfer(storeAmount);
+        // payable(0x90F79bf6EB2c4f870365E785982E1f101E93b906).transfer(storeAmount);
+        payable(store_address).transfer(storeAmount);
     }
 
 
