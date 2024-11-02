@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "D:\\web3\\contracts\\Trustchain.sol": {
-      "lastModificationDate": 1730485347348,
-      "contentHash": "79cc746577d552be54795dfdecc3b369",
+      "lastModificationDate": 1730565613293,
+      "contentHash": "64b77812f468ea64b46b5ac035458491",
       "sourceName": "contracts/Trustchain.sol",
       "solcConfig": {
         "version": "0.8.27",

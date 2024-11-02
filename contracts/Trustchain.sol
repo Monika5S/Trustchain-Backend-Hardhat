@@ -24,6 +24,14 @@ contract  Trustchain{
     string[] private charityOrgs;
     mapping(string => bool) private charityOrgExists; // To prevent duplicates
 
+// Event to log donations made to campaigns
+    event DonationMade(
+        uint256 indexed campaignId, // Campaign ID
+        address indexed donor,       // Donor's address
+        uint256 amount,             // Amount donated
+        uint256 timestamp           // Timestamp of the donation
+    );
+
 // function to create campaign and return id of that
     function createCampaign(address _owner, string memory _title, string memory _description, uint256 _targetGoal, uint256 _deadline, string memory _image, string memory _charity_org ,string memory _support_keyword) public returns (uint256) {
         Campaign storage campaign = campaigns[numberOfCampaigns];
@@ -79,6 +87,10 @@ contract  Trustchain{
         // Transfer remaining amount to store owner
         // payable(0x90F79bf6EB2c4f870365E785982E1f101E93b906).transfer(storeAmount);
         payable(store_address).transfer(storeAmount);
+
+          // Emit the DonationMade event (this is where you emit the event)
+        emit DonationMade(_id, msg.sender, campaignAmount, block.timestamp);
+   
     }
 
 
